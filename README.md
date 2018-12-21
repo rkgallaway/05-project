@@ -1,18 +1,20 @@
-![CF](http://i.imgur.com/7v5ASc8.png) LAB
+![CF](http://i.imgur.com/7v5ASc8.png) LAB 05
 =================================================
 
-## Project Name
+## Lab 05 Bitmap Project
 
-### Author: Student/Group Name
+### Author: Ryan Gallaway and George Raymond
 
 ### Links and Resources
-* [repo](http://xyz.com)
-* [travis](http://xyz.com)
-* [back-end](http://xyz.com)
-* [front-end](http://xyz.com)
+
+[![Build Status](https://www.travis-ci.com/rkgallaway/05-project.svg?branch=master)](https://www.travis-ci.com/rkgallaway/05-project)
+
+* [repo](https://github.com/rkgallaway/05-project)
+* [travis](https://www.travis-ci.com/rkgallaway/05-project)
+* [server](https://lab-05-bitmap-project.herokuapp.com)
 
 ### Modules
-#### `modulename.js`
+#### `index.js`
 ##### Exported Values and Methods
 
 ###### `foo(thing) -> string`
@@ -23,18 +25,19 @@ Usage Notes or examples
 
 ### Setup
 #### `.env` requirements
-* `PORT` - Port Number
-* `MONGODB_URI` - URL to the running mongo instance/db
+* `PORT` - declared in ENV
 
 #### Running the app
 * `npm start`
-* Endpoint: `/foo/bar/`
-  * Returns a JSON object with abc in it.
+* Endpoint: `/`
+  * Returns <insert>.
 * Endpoint: `/bing/zing/`
   * Returns a JSON object with xyz in it.
 
 #### Tests
-* How do you run tests?
+* npm test (runs unit tests)
+* npm run  lint (runs linter tests)
+* node <filename> (runs node test)
 * What assertions were made?
 * What assertions need to be / should be made?
 
