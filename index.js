@@ -1,6 +1,9 @@
 'use strict';
 
 const fs = require('fs');
+// const util = require('util');
+// const readFile = util.promisify(fs.readFile);
+// const writeFile = uril.promisify(fs.writeFile);
 
 /**
  * Bitmap -- receives a file name, used in the transformer to note the new buffer
@@ -18,7 +21,18 @@ function Bitmap(filePath) {
 Bitmap.prototype.parse = function(buffer) {
   this.buffer = buffer;
   this.type = buffer.toString('utf-8', 0, 2);
-  //... and so on
+  this.size = buffer.readInt32LE(2);
+  this.offset = buffer.readInt32LE(10);
+  this.headersize = buffer.readInt32LE(14);
+  this.width = buffer.readInt32LE(18);
+  this.height = buffer.readInt32LE(22);
+  this.bitsPerPixel = buffer.readInt16LE(28);
+  this.colorArray = buffer.slice(54, this.offset);
+  this.pixelArray = buffer.slice(1078);
+  if ( ! this.colorArray.length ) {
+    throw 'not a valid bmp format';
+  }
+
 };
 
 /**
@@ -31,38 +45,21 @@ Bitmap.prototype.transform = function(operation) {
   this.newFile = this.file.replace(/\.bmp/, `.${operation}.bmp`);
 };
 
-/**
- * Sample Transformer (greyscale)
- * Would be called by Bitmap.transform('greyscale')
- * Pro Tip: Use "pass by reference" to alter the bitmap's buffer in place so you don't have to pass it around ...
- * @param bmp
- */
-const transformGreyscale = (bmp) => {
-
-  console.log('Transforming bitmap into greyscale', bmp);
-
-  //TODO: Figure out a way to validate that the bmp instance is actually valid before trying to transform it
-
-  //TODO: alter bmp to make the image greyscale ...
-
-};
-
-const doTheInversion = (bmp) => {
-  bmp = {};
-}
 
 /**
  * A dictionary of transformations
  * Each property represents a transformation that someone could enter on the command line and then a function that would be called on the bitmap to do this job
  */
 const transforms = {
-  greyscale: transformGreyscale,
-  invert: doTheInversion
+  greyscale: require('./transformers/greyscale'),
+  invert: require('./transformers/invert'),
+  test: require('./transformers/test'),
 };
 
 // ------------------ GET TO WORK ------------------- //
 
 function transformWithCallbacks() {
+
 
   fs.readFile(file, (err, buffer) => {
 
