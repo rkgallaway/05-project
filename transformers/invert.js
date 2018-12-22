@@ -1,0 +1,5 @@
+
+const doTheInversion = (bmp) => {
+    bmp = {};
+  };
+  
