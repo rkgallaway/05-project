@@ -54,6 +54,8 @@ const transforms = {
   greyscale: require('./transformers/greyscale'),
   invert: require('./transformers/invert'),
   test: require('./transformers/test'),
+  infrared: require('./transformers/infrared'),
+  shrek: require('./transformers/shrek'),
 };
 
 // ------------------ GET TO WORK ------------------- //
