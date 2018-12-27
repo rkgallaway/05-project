@@ -4,6 +4,7 @@ const fs = require('fs');
 // const util = require('util');
 // const readFile = util.promisify(fs.readFile);
 // const writeFile = uril.promisify(fs.writeFile);
+const pol = require('./pol.js');
 
 /**
  * Bitmap -- receives a file name, used in the transformer to note the new buffer
@@ -53,7 +54,7 @@ Bitmap.prototype.transform = function(operation) {
 const transforms = {
   greyscale: require('./transformers/greyscale'),
   invert: require('./transformers/invert'),
-  test: require('./transformers/test'),
+  brownBag: require('./transformers/brown-bag'),
   infrared: require('./transformers/infrared'),
   shrek: require('./transformers/shrek'),
   redFlip: require('./transformers/red-flip'),
