@@ -8,5 +8,5 @@ module.exports = (bmp) => {
     bmp.colorArray[i] = 50;
     bmp.colorArray[i+1] = 150;
   }
-  console.log('turning the blacks to blues');
+  console.log('turns into brown-bag canvas with Green outlines ');
 };
