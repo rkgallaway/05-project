@@ -16,12 +16,21 @@
 ### Modules
 #### `index.js`
 ##### Exported Values and Methods
+greenFlip, greyscale, infared, invert, johnZombie, redFlip, shrek, test
 
-###### `foo(thing) -> string`
-Usage Notes or examples
+###### Method descriptions
+greenFlip inverts color scheme and enhances greens
+greyscale converts image to grey tones
+infared converts image to red base tones
+invert rotates image 180* and splits on y axis
+johnZombie darkens image and outlines in yellow
+redFlip inverts color scheme and enhances reds
+shrek converts image to green tones
+test convers image to a brown-bag canvas with green ouline
 
-###### `bar(array) -> array`
-Usage Notes or examples
+###### Image samples
+modified image filepath contains the method used.
+for example:  baldy.greenFlip.bmp contains an image that incorporates the greenFlip method.
 
 ### Setup
 #### `.env` requirements
@@ -30,16 +39,12 @@ Usage Notes or examples
 #### Running the app
 * `npm start`
 * Endpoint: `/`
-  * Returns <insert>.
-* Endpoint: `/bing/zing/`
-  * Returns a JSON object with xyz in it.
+  * Returns altered bmp images.
 
 #### Tests
 * npm test (runs unit tests)
 * npm run  lint (runs linter tests)
-* node <filename> (runs node test)
-* What assertions were made?
-* What assertions need to be / should be made?
+* node index.js ./assets/baldy.bmp <transformer method> (runs node test)
+* available transformer methods: greenFlip, greyscale, infared, invert, johnZombie, redFlip, shrek, test
+<!-- * What assertions need to be / should be made? -->
 
-#### UML
-Link to an image of the UML for your application and response to events

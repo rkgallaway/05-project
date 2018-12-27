@@ -56,6 +56,9 @@ const transforms = {
   test: require('./transformers/test'),
   infrared: require('./transformers/infrared'),
   shrek: require('./transformers/shrek'),
+  redFlip: require('./transformers/red-flip'),
+  greenFlip: require('./transformers/green-flip'),
+  johnZombie: require('./transformers/john-zombie'),
 };
 
 // ------------------ GET TO WORK ------------------- //
